@@ -2,7 +2,6 @@ import React from "react";
 
 export function Segment(props) {
   const { horizontal, position, color } = props;
-  console.log("horizontal", horizontal, color);
   const containerStyle = {
     position: "absolute",
     marginLeft: "10px",
