@@ -29,9 +29,9 @@ export function SevenSegment(props) {
   const segmentArray = segmentMatrix[number || 6];
 
   const segmentMap = segmentArray.map((val, i) => {
-    if (val) {
-      return <Segment color={color} {...segmentProperties[i]} />;
-    }
+    return val ? (
+      <Segment key={i} color={color} {...segmentProperties[i]} />
+    ) : null;
   });
 
   return (
