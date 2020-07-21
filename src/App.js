@@ -1,24 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Display from "./components/Display";
 
 function App() {
+  const [number, setNumber] = useState("");
+
+  const handleChange = (e) => {
+    if (e.target.value.length < 10) {
+      setNumber(e.target.value);
+    }
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Display number={number} />
+      <input type="number" onChange={handleChange} max="99999999" />
     </div>
   );
 }
