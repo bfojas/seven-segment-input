@@ -4,16 +4,27 @@ import SevenSegment from "./SevenSegment";
 export function Display(props) {
   const { number } = props;
   const numberArray = number ? number.split("") : [];
-  let segmentMap = numberArray.map((val, i) => {
-    return val ? <SevenSegment key={i} number={val} /> : null;
+  let segmentMap = numberArray.map((val, i, arr) => {
+    return val && val !== "." ? (
+      <SevenSegment
+        key={i}
+        decimal={arr[i - 1] === "."}
+        color={"black"}
+        number={val}
+      />
+    ) : null;
   });
   return (
     <div
       style={{
         position: "relative",
-        height: "200px",
+        height: "140px",
         display: "flex",
-        margin: "8px",
+        justifyContent: "flex-end",
+        alignItems: "center",
+        padding: "8px",
+        border: "24px solid black",
+        backgroundColor: "darkkhaki",
       }}>
       {segmentMap}
     </div>

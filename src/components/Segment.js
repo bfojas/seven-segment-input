@@ -1,12 +1,13 @@
 import React from "react";
 
 export function Segment(props) {
-  const { horizontal, position, color } = props;
+  const { horizontal, position, color, zIndex } = props;
   const containerStyle = {
     position: "absolute",
     marginLeft: "10px",
     width: "10px",
     height: "30px",
+    zIndex,
     ...position,
   };
 
